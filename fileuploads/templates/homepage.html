@@ -10,23 +10,34 @@
         </div>
     </header>
 
+    <!-- Latest Version Section -->
+    <div class="container mt-5">
+        <h2 class="display-4 text-center mb-5">Latest Version:</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <ul class="list-group">
+                    {% if versions %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span class="font-weight-bold" style="color: black;">Version: {{ versions.0.version }}</span> -
+                            <span style="color: black;">{{ versions.0.file.name|filename }}</span>
+                            <a href="{% url 'download_file' file_id=versions.0.id %}" class="btn btn-primary btn-sm" download>Download</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- Uploaded Versions Section -->
     <div class="container mt-5">
         <h2 class="display-4 text-center mb-5">Uploaded Versions:</h2>
-        <style>
-            /* Custom style for the version names */
-            .list-group-item span.font-weight-bold {
-                color: black; /* Change the color to black or another color that contrasts well */
-            }
-            /* Custom style for the "Download" link */
-            .list-group-item a.btn-primary {
-                color: black;
-            }
-        </style>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <ul class="list-group">
                     {% for version in versions %}
+                        {% if forloop.first %} {# Skip the first version since it's displayed above as the latest #}
+                            continue
+                        {% endif %}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <span class="font-weight-bold" style="color: black;">Version: {{ version.version }}</span> -
                             <span style="color: black;">{{ version.file.name|filename }}</span>
