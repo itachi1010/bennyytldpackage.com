@@ -1,18 +1,38 @@
 <!DOCTYPE html>
-<html>
+{% load static %}
+
+<html lang="en">
+
 <head>
-    <title>My App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home of the best - YTDL</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}?h=3a4488f295852f53b48caeaa27d0b0cd">
+    <link rel="stylesheet" href="{% static 'assets/css/Inter.css' %}?h=0b408f87d884271362d2acb348b4df00">
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/upload">Upload</a></li>
-        </ul>
-    </nav>
-    <div class="content">
-        {% block content %}
-        {% endblock %}
-    </div>
+    <!-- Start: Navbar Centered Links -->
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top py-3" id="mainNav">
+        <!-- Navigation content goes here -->
+    </nav><!-- End: Navbar Centered Links -->
+
+    <!-- Content block to be extended by specific pages -->
+    {% block content %}{% endblock %}
+
+    <!-- Start: Newsletter Subscription Color -->
+    <section class="py-4 py-xl-5">
+        <div class="container">
+            <!-- Newsletter content goes here -->
+        </div>
+    </section><!-- End: Newsletter Subscription Color -->
+
+    <!-- Start: Footer Multi Column -->
+    <footer class="bg-dark">
+        <div class="container py-4 py-lg-5">
+            <!-- Footer content goes here -->
+        </div>
+    </footer>
 </body>
+
 </html>
