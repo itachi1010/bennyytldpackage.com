@@ -10,6 +10,4 @@ urlpatterns = [
     path('download/<int:file_id>/', views.download_file, name='download_file'),
     path('', views.homepage, name='homepage'),
 
-]
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

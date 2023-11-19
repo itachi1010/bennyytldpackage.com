@@ -1,0 +1,17 @@
+.env
+
+SECRET_KEY=django-insecure-pk@3b)_2tcp*rk1r%*nr@ob=t@)o*x*&qo9t(o&fug*ana-koa
+DEBUG=True
+ALLOWED_HOSTS=['bennyytdl.onrender.com']
+
+
+build command
+
+python -m pip install --upgrade pip  && pip install -r requirements.txt && python manage.py makemigrations --noinput && python manage.py migrate --noinput && python manage.py collectstatic --noinput
+
+e
+
+start command
+
+gunicorn myproject.wsgi
+
